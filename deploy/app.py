@@ -21,7 +21,7 @@ st.set_page_config(page_title="BPJS Fraud Case Detection", page_icon="⛳️", l
 
 def load_model(modelfile):
 
-	loaded_model = pickle.load(open(modelfile, 'wb'))
+	loaded_model = pickle.load(open(modelfile, 'rb'))
 
 	return loaded_model
     

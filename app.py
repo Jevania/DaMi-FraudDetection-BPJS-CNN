@@ -55,9 +55,9 @@ def main():
             🧬 Looking for disease diagnosis codes? Find them [here](https://www.icd10data.com/ICD10CM/Codes)!
                      
             ---
-            *Copyright © 2024 by DaMi-2324-Team05*
+            *Copyright © 2024 by DaMi-2324-Team06*
         
-            *Made with  ❤️  by DaMi-2324-Team05*
+            *Made with  ❤️  by DaMi-2324-Team06*
                      
             *(Irma, Marcel, Dani, Jevania)*
                              

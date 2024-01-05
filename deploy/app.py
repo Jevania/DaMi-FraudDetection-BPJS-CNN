@@ -26,11 +26,11 @@ def load_model(modelfile):
 	return loaded_model
     
 
-def load_model(modelfile):
-    if os.path.exists(filename_cvt):
-        return pickle.load(open(filename_cvt, 'rb'))
-    else:
-        return pickle.load(open(modelfile, 'rb'))
+# def load_model(modelfile):
+#     if os.path.exists(filename_cvt):
+#         return pickle.load(open(filename_cvt, 'rb'))
+#     else:
+#         return pickle.load(open(modelfile, 'rb'))
 
 
 def main():

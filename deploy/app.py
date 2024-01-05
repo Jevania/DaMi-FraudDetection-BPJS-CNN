@@ -9,21 +9,21 @@ import warnings
 st.set_page_config(page_title="BPJS Fraud Case Detection", page_icon="⛳️", layout='centered', initial_sidebar_state="collapsed"
                    )
 
-filename = 'model.pkl'
-filename_cvt = 'model.sav'
+# filename = 'model.pkl'
+# filename_cvt = 'model.sav'
 
-if not os.path.exists(filename_cvt):
-    # Load the model from disk
-    loaded_model = pickle.load(open(filename, 'rb'))
+# if not os.path.exists(filename_cvt):
+#     # Load the model from disk
+#     loaded_model = pickle.load(open(filename, 'rb'))
 
-    # Save the model as model.sav
-    pickle.dump(loaded_model, open(filename_cvt, 'wb'))
+#     # Save the model as model.sav
+#     pickle.dump(loaded_model, open(filename_cvt, 'wb'))
 
-# def load_model(modelfile):
+def load_model(modelfile):
 
-# 	loaded_model = pickle.load(open(modelfile, 'rb'))
+	loaded_model = pickle.load(open(modelfile, 'wb'))
 
-# 	return loaded_model
+	return loaded_model
     
 
 def load_model(modelfile):
@@ -153,7 +153,7 @@ def main():
 
         if st.button('Predict'):
             #  print(single_pred)
-            loaded_model = load_model('deploy/model.pkl')
+            loaded_model = load_model('deploy/model.sav')
             prediction = loaded_model.predict(single_pred).item()
             prediction = np.round(prediction).astype(int)
             col1.write('''

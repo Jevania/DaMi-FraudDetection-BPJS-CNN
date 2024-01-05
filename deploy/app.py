@@ -1,3 +1,4 @@
+import zipfile
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -10,9 +11,38 @@ st.set_page_config(page_title="BPJS Fraud Case Detection", page_icon="⛳️", l
                    )
 
 
+# def load_model(modelfile):
+# 	loaded_model = pickle.load(open(modelfile, 'rb'))
+# 	return loaded_model
+
+
+def unzip_file(zip_file, extract_to):
+    with zipfile.ZipFile(zip_file, 'r') as zip_ref:
+        zip_ref.extractall(extract_to)
+
+
 def load_model(modelfile):
-	loaded_model = pickle.load(open(modelfile, 'rb'))
-	return loaded_model
+    # Create a temporary directory to extract the ZIP file
+    temp_dir = os.path.join(os.getcwd(), 'temp_unzip_dir')
+    os.makedirs(temp_dir, exist_ok=True)
+
+    # Unzip the model file
+    unzip_file(modelfile, temp_dir)
+
+    # Assuming the model file inside the ZIP has a .pkl extension
+    model_file_path = os.path.join(temp_dir, 'model.pkl')
+
+    loaded_model = pickle.load(open(model_file_path, 'rb'))
+
+    # Optionally, you can clean up the temporary directory after loading the model
+    # import shutil
+    # shutil.rmtree(temp_dir)
+
+    return loaded_model
+
+
+loaded_model = load_model('deploy/model.pkl.zip')
+
 
 
 def main():
@@ -135,7 +165,8 @@ def main():
 
         if st.button('Predict'):
             #  print(single_pred)
-            loaded_model = load_model('deploy/model.pkl')
+            # loaded_model = load_model('deploy/model.pkl')
+            loaded_model = load_model('deploy/model.pkl.zip')
             prediction = loaded_model.predict(single_pred).item()
             prediction = np.round(prediction).astype(int)
             col1.write('''

@@ -2,6 +2,8 @@
 
 Predicting the potential for fraud in hospital service claims using CNN (Convolutional Neural Networks).
 
+Check out the entire project [here](https://github.com/marceljsh/DaMi-FraudDetection-BPJS-CNN).
+
 <br>
 
 
@@ -39,3 +41,12 @@ The BPJS Fraud Detection application is deployed using [Streamlit](https://strea
 3. 12S20048 - Jevania
 
 ```
+
+
+---
+
+
+## `🧚🏼‍♀️ Spread the word!`
+If the information from this repo was useful to you in any way, make sure you give it a star 🌟, this way others can find it and benefit too!
+
+**Do you have any suggestions on how we could improve this project overall? Let me know! We'd love to hear your feedback!🙆🏼‍♀️**

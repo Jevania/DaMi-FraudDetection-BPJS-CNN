@@ -28,7 +28,7 @@ st.set_page_config(page_title="BPJS Fraud Case Detection", page_icon="⛳️", l
 
 # 	return loaded_model
 
-def load_model(modelfile):
+def load_custom_model(modelfile):
     loaded_model = load_model(modelfile)
     return loaded_model
     
@@ -160,7 +160,7 @@ def main():
 
         if st.button('Predict'):
             #  print(single_pred)
-            loaded_model = load_model('model.sav')
+            loaded_model = load_custom_model('model.sav')
             prediction = loaded_model.predict(single_pred).item()
             prediction = np.round(prediction).astype(int)
             col1.write('''

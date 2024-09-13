@@ -21,16 +21,11 @@ st.set_page_config(page_title="BPJS Fraud Case Detection", page_icon="⛳️", l
 #     # Save the model as model.sav
 #     pickle.dump(loaded_model, open(filename_cvt, 'wb'))
 
-#temp
-# def load_model(modelfile):
+def load_model(modelfile):
 
-# 	loaded_model = pickle.load(open(modelfile, 'rb'))
+	loaded_model = pickle.load(open(modelfile, 'rb'))
 
-# 	return loaded_model
-
-def load_custom_model(modelfile):
-    loaded_model = load_model(modelfile)
-    return loaded_model
+	return loaded_model
     
 
 # def load_model(modelfile):
@@ -160,7 +155,8 @@ def main():
 
         if st.button('Predict'):
             #  print(single_pred)
-            loaded_model = load_custom_model('model.sav')
+            loaded_model = load_model('model.sav')
+            loaded_model.save('model.h5')
             prediction = loaded_model.predict(single_pred).item()
             prediction = np.round(prediction).astype(int)
             col1.write('''

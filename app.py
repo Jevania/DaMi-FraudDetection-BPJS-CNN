@@ -5,6 +5,8 @@ import os
 import pickle
 import warnings
 
+from keras.models import load_model
+
 
 st.set_page_config(page_title="BPJS Fraud Case Detection", page_icon="⛳️", layout='centered', initial_sidebar_state="collapsed"
                    )
@@ -19,11 +21,16 @@ st.set_page_config(page_title="BPJS Fraud Case Detection", page_icon="⛳️", l
 #     # Save the model as model.sav
 #     pickle.dump(loaded_model, open(filename_cvt, 'wb'))
 
+#temp
+# def load_model(modelfile):
+
+# 	loaded_model = pickle.load(open(modelfile, 'rb'))
+
+# 	return loaded_model
+
 def load_model(modelfile):
-
-	loaded_model = pickle.load(open(modelfile, 'rb'))
-
-	return loaded_model
+    loaded_model = load_model(modelfile)
+    return loaded_model
     
 
 # def load_model(modelfile):
